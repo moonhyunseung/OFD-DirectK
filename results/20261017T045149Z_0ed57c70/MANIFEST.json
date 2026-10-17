@@ -1,0 +1,38 @@
+{
+  "source_sha": "53efd65761a756d3e0ff059272eb57779e406d84",
+  "status": "PASS",
+  "command": [
+    "experiments/verify_reference.py"
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "pytest": "9.1.1",
+  "device": "cpu",
+  "threads": 1,
+  "seed": 1729,
+  "performance_claim": false,
+  "production_numerical_contract_closed": false,
+  "source_sha256": {
+    "experiments/numerical_profile.py": "92048bf8665389b05b719a357e347fc8eaa37ba5832cef5a818517eeed88c1d7",
+    "experiments/verify_reference.py": "b34ac3373d42094b615a060e1854b0091673d3ee1cd9b1bd512e0eef3cff2228",
+    "reference/decode_then_score.py": "80ef62fdcc86f368dfd8bdb1aee3e5cab11a41984317b783533fd72546517bb6",
+    "reference/direct_packed_score.py": "288bf4c4f04efbe6a77e414ea00838e22442ee7cd034764a1a7b5e6226244f3c",
+    "reference/quant.py": "9d59139d4b9390f2efe56f3f61cc468e733c563098eff832c2c5f28f9b77af9d",
+    "reference/signed_bytes_score.py": "596fe4eb956c0d152c6692024edaa95a6cc2266ebf9fb3114102566a7233d2e2",
+    "tests/test_codec_interop.py": "44bda4f6486874bd559e25c023ead4577ce42a0eef4bdceb766f70d8f3ad51c9",
+    "tests/test_exact_identity.py": "6962d086a5e34f20aa0757672bddfd39f5a71009ebcbb26e8785025ec55d6476",
+    "tests/test_numerical_equivalence.py": "547440e4cf654eb2f01b0efd2571414025d0a8c7e6919836bb6bac9a5d9a42ac",
+    "tests/test_representation.py": "ddc3a8af5dec46b6ef0118f72267c48b61bc7ef05d5d517b65b85500f5d5eb7d",
+    "tests/test_signed_bytes.py": "297397d51f08114a1f97772c3ad8f5468dad4be1ca901826f4c8e55da1054df8",
+    "upstream/signedint4/codec.py": "483f5f1b5c8b004a1ba6ba30a50b0775fcc8350c4a3f19c76a7d3bd03a8b156b"
+  },
+  "test_return_code": 0,
+  "numerical": {
+    "rows": 96,
+    "all_finite": true,
+    "max_abs": 0.34375,
+    "max_error_over_abs_term_envelope": 1.0849340218139433e-08
+  }
+}

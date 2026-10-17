@@ -44,3 +44,7 @@ This is algebraically exact over the reals under the frozen representation contr
 2. Fix the numerical acceptance contract for FP32/FP16 accumulation orders.
 3. Characterize native packed lowering on target GPUs before any speed claim.
 4. Derive the crossover experiment from the hardware cost model rather than from blind sweeps.
+
+## Verified CPU reference checkpoint — 2026-10-17
+
+Source `53efd65761a756d3e0ff059272eb57779e406d84`; [10-test formal run and raw evidence](results/20261017T045149Z_0ed57c70/FINDINGS.md). Exact dependencies are pinned where used. These are CPU reference results only.
