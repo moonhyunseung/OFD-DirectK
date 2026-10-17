@@ -6,11 +6,10 @@ from reference.quant import quantize_int4_groupwise
 
 
 def _errors(a: torch.Tensor, b: torch.Tensor):
-    diff = (a - b).abs()
-    max_abs = diff.max().item()
-    denom = b.abs().clamp_min(1e-12)
-    max_rel = (diff / denom).max().item()
-    return max_abs, max_rel
+    diff = a - b
+    max_abs = diff.abs().max().item()
+    rel_l2 = (diff.norm() / b.norm().clamp_min(1e-30)).item()
+    return max_abs, rel_l2
 
 
 def test_float32_paths_are_numerically_close():
@@ -26,11 +25,11 @@ def test_float32_paths_are_numerically_close():
     z_ref = decode_then_score(q, packed, alpha, out_dtype=torch.float32)
     z_direct = direct_packed_score(q, packed, alpha, compute_dtype=torch.float32)
 
-    max_abs, max_rel = _errors(z_direct, z_ref)
+    max_abs, rel_l2 = _errors(z_direct, z_ref)
 
-    # This test is a numerical contract, not the proof of algebraic exactness.
+    # This is a numerical contract, not the proof of algebraic exactness.
     assert max_abs < 5e-5
-    assert max_rel < 5e-4
+    assert rel_l2 < 5e-6
 
 
 def test_float64_is_tighter_than_float32_on_same_case():
