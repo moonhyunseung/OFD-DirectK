@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "signedint4": {
+    "repository": "moonhyunseung/OFD-SignedInt4",
+    "commit": "39bb5a64f1c1fdb7a44b789186d3499501254f5f",
+    "source_path": "reference/codec.py",
+    "vendored_path": "upstream/signedint4/codec.py",
+    "sha256": "483f5f1b5c8b004a1ba6ba30a50b0775fcc8350c4a3f19c76a7d3bd03a8b156b",
+    "adaptations": []
+  },
+  "quantizer": {
+    "repository": "moonhyunseung/OFD-DirectK",
+    "origin_commit": "54eaafde6a63fd55ee5ac6d2ccb7dc0001ead951",
+    "path": "reference/quant.py",
+    "sha256": "9d59139d4b9390f2efe56f3f61cc468e733c563098eff832c2c5f28f9b77af9d",
+    "changed": false
+  }
+}
