@@ -69,7 +69,14 @@ def dequantize_int4_groupwise(
     obj: PackedInt4,
     out_dtype: torch.dtype = torch.float32,
 ) -> torch.Tensor:
-    q = unpack_signed_int4(obj).float()
-    scale = obj.scale.float().unsqueeze(-1)
+    """Decode the stored mathematical state in the requested compute dtype.
+
+    Scale values are already frozen/stored as FP16. Casting those stored
+    values to `out_dtype` before multiplication allows high-precision tests
+    to evaluate the same decoded-quantized state without adding an unrelated
+    float32 multiplication roundoff.
+    """
+    q = unpack_signed_int4(obj).to(out_dtype)
+    scale = obj.scale.to(out_dtype).unsqueeze(-1)
     x = q * scale
-    return x.reshape(obj.orig_shape).to(out_dtype)
+    return x.reshape(obj.orig_shape)
